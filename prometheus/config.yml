@@ -1,0 +1,41 @@
+global:
+  scrape_interval: 1s
+  evaluation_interval: 1s
+
+alerting:
+  alertmanagers:
+    - static_configs:
+      - targets:
+
+rule_files:
+
+scrape_configs:
+# I do not really need prometheus to monitor itself
+#  - job_name: 'prometheus'
+#    static_configs:
+#      - targets: ['localhost:9090']
+#
+#  - job_name: 'fluentd'
+#    static_configs:
+#      - targets: ['192.168.101.114:24231']
+  - job_name: 'windows_exporter'
+    static_configs:
+      - targets: ['192.168.101.114:9182']
+        labels:
+          instance: dell-g7
+#      - targets: ['XXX.YYY.ZZZ.WWW:9182']
+#        labels:
+#          instance: XXX
+
+  - job_name: 'nvidia_gpu_exporter'
+    static_configs:
+      - targets: ['192.168.101.114:9835']
+        labels:
+          instance: dell-g7
+
+# to be used if found a tool to export and push 
+#  - job_name: 'pushgateway'
+#    honor_labels: true
+#    static_configs:
+#      - targets:
+#          - pushgateway:9091
