@@ -5,7 +5,7 @@ Performance Monitoring Dashboard for DCS
 Requires:
 - installed docker
 - installed docker-compose
-1. customize your dashboard configuration in (prometheus/config.yml)
+1. customize your dashboard configuration in [prometheus/config.yml](prometheus/config.yml)
 2. edit targets and their labels.
 3. create grafana & prometheus
 ```
